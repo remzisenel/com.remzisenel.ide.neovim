@@ -2,7 +2,7 @@
   "name": "com.remzisenel.ide.neovim",
   "displayName": "Neovim Editor",
   "description": "The Neovim Editor package provides an integration for using Nvim as a code editor for Unity. It adds support for generating .csproj files for code completion and auto-discovery of installations through which.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "unity": "2019.2",
   "unityRelease": "6f1",
   "dependencies": { },

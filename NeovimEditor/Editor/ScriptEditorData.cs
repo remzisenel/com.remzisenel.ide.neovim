@@ -15,10 +15,7 @@ namespace NeovimEditor.Editor {
         }
 
         public bool HasChangesInCompilationDefines() {
-            if (activeScriptCompilationDefines == null)
-                return false;
-
-            return !EditorUserBuildSettings.activeScriptCompilationDefines.SequenceEqual(activeScriptCompilationDefines);
+            return activeScriptCompilationDefines != null && !EditorUserBuildSettings.activeScriptCompilationDefines.SequenceEqual(activeScriptCompilationDefines);
         }
     }
 }
