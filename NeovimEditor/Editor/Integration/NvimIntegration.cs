@@ -22,12 +22,12 @@ namespace NeovimEditor.Editor.Integration {
 
         }
 
-        public static void RestartOmnisharp(string nvimExecutable) {
-            UnityEngine.Debug.Log("<color=\"grey\">NvimIntegration.RestartOmnisharp</color>");
-            var res = CmdRunner.Run("nvim", $"--server /tmp/nvimsocket --remote-send \"<C-\\><C-n>:LspRestart<CR>\"", ".");
-            if (res.ExitCode != 0) {
-                UnityEngine.Debug.Log("<color=\"red\">Error in RestartOmnisharp: " + res.StandardError + "</color>");
-            }
+        public static void SyncProject(string nvimExecutable) {
+            /*UnityEngine.Debug.Log("<color=\"grey\">NvimIntegration.RestartOmnisharp</color>");*/
+            /*var res = CmdRunner.Run("nvim", $"--server /tmp/nvimsocket --remote-send \"<C-\\><C-n>:LspRestart<CR>\"", ".");*/
+            /*if (res.ExitCode != 0) {*/
+            /*    UnityEngine.Debug.Log("<color=\"red\">Error in RestartOmnisharp: " + res.StandardError + "</color>");*/
+            /*}*/
         }
     }
 

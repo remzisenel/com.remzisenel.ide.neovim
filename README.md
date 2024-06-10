@@ -18,7 +18,10 @@ This plugin simply:
 - Updates project files as needed. Unity needs to be focused for this to trigger, so when you add a file focus Unity and let the plugin do its work.
 - Sends a remote message to listening nvim instance for:
     1. Opening a file, with a specific line number
-    2. Sending a :LspRestart when solution files are modified (a file is added/removed/modified that has an impact on the compilation)
+    ~~2. Sending a :LspRestart when solution files are modified (a file is added/removed/modified that has an impact on the compilation)~~
+    (deprecated as this is no longer needed using omnisharp v1.39.11, neovim v0.10.0) (I'm not sure what caused this change if omnisharp finally
+    fixed it or not but it appears to be working fine without this, if for whatever reason your configuration doesn't work as expected, you can
+    enable this behaviour by uncommenting lines 26:30 in NvimIntegration.cs)
 
 ## Usage
 
