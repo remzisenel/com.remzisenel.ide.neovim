@@ -2,10 +2,10 @@
   "name": "com.remzisenel.ide.neovim",
   "displayName": "Neovim Editor",
   "description": "The Neovim Editor package provides an integration for using Nvim as a code editor for Unity. It adds support for generating .csproj files for code completion and auto-discovery of installations through which.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "unity": "2019.2",
   "unityRelease": "6f1",
-  "dependencies": { },
+  "dependencies": {},
   "documentationUrl": "https://github.com/remzisenel/com.remzisenel.ide.neovim",
   "repository": {
     "url": "https://github.com/remzisenel/com.remzisenel.ide.neovim.git",

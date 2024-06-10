@@ -9,7 +9,10 @@ namespace NeovimEditor.Editor {
     public class NeovimCodeEditor : IExternalCodeEditor {
         public static string CurrentEditor => EditorPrefs.GetString("kScriptsDefaultApp");
 
-        public CodeEditor.Installation[] Installations => new CodeEditor.Installation[] { new() { Name = "Neovim", Path = "/usr/local/bin/nvim" } };
+        public CodeEditor.Installation[] Installations => new CodeEditor.Installation[] { new() {
+           Name = "nvim",
+           Path = "/bin/sh",
+        }};
 
         private IGenerator _projectGenerator;
         private NeovimFileWatcher _fileWatcher;
@@ -122,25 +125,23 @@ namespace NeovimEditor.Editor {
             }
             if (_projectGenerator.SyncIfNeeded(files, importedFiles)) {
                 // csproj has been updated, restart omnisharp
-                Integration.NvimIntegration.RestartOmnisharp(Installations[0].Path);
+                Integration.NvimIntegration.SyncProject(Installations[0].Path);
             }
         }
 
         public bool TryGetInstallationForPath(string editorPath, out CodeEditor.Installation installation) {
-            var res = Integration.NvimIntegration.GetNvimExecutablePath(out var nvimPath);
-            if (!res) {
-                Debug.LogError("nvim executable not found in path, integration will not function properly.");
-                installation = new CodeEditor.Installation() {
-                    Name = "!nvim not found",
-                    Path = "/bin/nvim"
-                };
-                return false;
-            } else {
+            if (Integration.NvimIntegration.GetNvimExecutablePath(out var nvimExecutablePath)) {
                 installation = new CodeEditor.Installation() {
                     Name = "nvim",
-                    Path = nvimPath
+                    Path = nvimExecutablePath,
                 };
                 return true;
+            } else {
+                installation = new CodeEditor.Installation() {
+                    Name = "!nvim not found",
+                    Path = nvimExecutablePath,
+                };
+                return false;
             }
         }
     }
