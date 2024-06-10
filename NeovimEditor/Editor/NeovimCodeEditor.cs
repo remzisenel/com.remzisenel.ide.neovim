@@ -122,7 +122,7 @@ namespace NeovimEditor.Editor {
             }
             if (_projectGenerator.SyncIfNeeded(files, importedFiles)) {
                 // csproj has been updated, restart omnisharp
-                Integration.NvimIntegration.RestartOmnisharp(Installations[0].Path);
+                Integration.NvimIntegration.SyncProject(Installations[0].Path);
             }
         }
 
